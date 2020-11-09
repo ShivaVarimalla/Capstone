@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { View,Button, Text,Modal} from 'react-native'
-import { Picker } from '@react-native-picker/picker'
+// import { Picker } from '@react-native-picker/picker' -------- IT IS GIVING ERROR WHILE COMPILING, REMOVE COMMENT THEN RUN THE CODE
 
 class Emergency extends React.Component{
 
