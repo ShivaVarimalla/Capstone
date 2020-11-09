@@ -5,8 +5,8 @@ class Logout extends React.Component{
 
         render(){
             return(
-                <View style={{BackgroundColor:"#0000FF", justifyContent:"flex-end", alignItems:"flex-end"}}>
-            <Button title="Logout"></Button>
+                <View style={{justifyContent:"flex-end", alignItems:"flex-end"}}>
+            <Button title="Logout" color="#008000"></Button>
                 </View>
             )
         }
