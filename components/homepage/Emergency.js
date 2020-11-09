@@ -3,18 +3,23 @@ import React from 'react'
 import { View,Button, Text,Modal} from 'react-native'
 // import { Picker } from '@react-native-picker/picker' -------- IT IS GIVING ERROR WHILE COMPILING, REMOVE COMMENT THEN RUN THE CODE
 
+
+
 class Emergency extends React.Component{
 
     constructor()
         {
             super();
-            this.state={
+            this.state={                                   //emergency button
                 show:false
             }
+            
+            this.state={selectedLabel:''};                  //picker
         }
         Show=(value)=>
         {
-            alert(value);
+            alert(value);                                   //picker values
+            this.setState.bind({selectedLabel:value});
         }
 
     render() {
@@ -29,7 +34,10 @@ class Emergency extends React.Component{
             
             <Text style={{fontSize: 50}}>Do you need help? </Text>
             
-            <Picker onValueChange={this.Show.bind()}>
+            <Picker 
+                selectedValue={this.state.selectedLabel}
+                onValueChange={this.Show.bind()}
+            >
                 <Picker.Item label="Select" value="0"/>
                 <Picker.Item label="NO" value="OK"/>
                 <Picker.Item label="YES" value="Contact 9152987821 "/>
