@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { View,Button, Text,Modal} from 'react-native'
+import { Picker } from '@react-native-picker/picker'
 
 class Emergency extends React.Component{
 
@@ -11,34 +12,32 @@ class Emergency extends React.Component{
                 show:false
             }
         }
+        Show=(value)=>
+        {
+            alert(value);
+        }
 
     render() {
         return(
-            <View style={{BackgroundColor:"#FF0000", justifyContent:"flex-start", alignItems:"flex-end"}}>
-            <Button title="EMERGENCY" onPress={()=>{this.setState({show:true})}}></Button>
+            <View style={{justifyContent:"flex-start", alignItems:"flex-end"}}>
+            <Button title="EMERGENCY" color="#FF0000" onPress={()=>{this.setState({show:true})}}></Button>
             <Modal
             transparent={true}
             visible={this.state.show}
             >
-           <View style={{BackgroundColor:"#000000aa", flex:1}}>
-            <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
+            <View style={{justifyContent:"flex-start", alignItems:"flex-end"}}>
+            
             <Text style={{fontSize: 50}}>Do you need help? </Text>
-            <Button title="NO" onPress={()=>{this.setState({show:false})}}></Button>
-            <Button title="YES" onPress={()=>{this.setState({show:true})}}></Button>
-                <Modal
-                transparent={true}
-                visible={this.state.show}
-                >
-                <View style={{BackgroundColor:"#000000aa", flex:1}}>
-                <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
-                <Text style={{fontSize: 50}}>Contact 9152987821 </Text>
-                </View>
-                </View>
-                </Modal>
-            </View>
+            
+            <Picker onValueChange={this.Show.bind()}>
+                <Picker.Item label="Select" value="0"/>
+                <Picker.Item label="NO" value="OK"/>
+                <Picker.Item label="YES" value="Contact 9152987821 "/>
+            </Picker>
             </View>
             </Modal>
             </View>
+            
         )
     }
 }
